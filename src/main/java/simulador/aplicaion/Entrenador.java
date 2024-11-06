@@ -1,4 +1,4 @@
-package simulador.entrenador;
+package simulador.aplicaion;
 
 public class Entrenador {
     // TODO: Aquí va tu código
