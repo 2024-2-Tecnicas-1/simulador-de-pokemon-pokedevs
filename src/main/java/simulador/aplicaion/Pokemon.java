@@ -10,18 +10,19 @@ public abstract class Pokemon {
     private LinkedList<TipoPokemon> tiposPokemon;
     private String estado;
 
-    public Pokemon(String nombre, int salud, int puntosAtaque, TipoPokemon tipoPokemon, String estado) {
+    // Constructor
+    public Pokemon(String nombre, int salud, int puntosAtaque, LinkedList<TipoPokemon> tiposPokemon, String estado) {
         this.nombre = nombre;
         this.salud = salud;
         this.puntosAtaque = puntosAtaque;
-        this.tiposPokemon = new LinkedList<>();
+        this.tiposPokemon = tiposPokemon;
         this.estado = estado;
     }
 
-    //Metodos Getters y Setters
+    // Getters y Setters
 
     public String getNombre() {
-        return this.nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
@@ -29,7 +30,7 @@ public abstract class Pokemon {
     }
 
     public int getSalud() {
-        return this.salud;
+        return salud;
     }
 
     public void setSalud(int salud) {
@@ -37,7 +38,7 @@ public abstract class Pokemon {
     }
 
     public int getPuntosAtaque() {
-        return this.puntosAtaque;
+        return puntosAtaque;
     }
 
     public void setPuntosAtaque(int puntosAtaque) {
@@ -45,7 +46,7 @@ public abstract class Pokemon {
     }
 
     public LinkedList<TipoPokemon> getTiposPokemon() {
-        return this.tiposPokemon;
+        return tiposPokemon;
     }
 
     public void setTiposPokemon(LinkedList<TipoPokemon> tiposPokemon) {
@@ -53,18 +54,15 @@ public abstract class Pokemon {
     }
 
     public String getEstado() {
-        return this.estado;
+        return estado;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
-    // Metodos abstracts
-
-    abstract int atacar(Pokemon oponente);
-
-    abstract int recibirDaño(int daño);
-
-    abstract int entrenar();
+    // Métodos abstractos que deben ser implementados por las subclases
+    public abstract int atacar(Pokemon oponente);
+    public abstract int recibirDaño(int daño);
+    public abstract int entrenar();
 }

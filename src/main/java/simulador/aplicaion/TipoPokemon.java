@@ -3,7 +3,7 @@ package simulador.aplicaion;
 public enum TipoPokemon {
     // TODO: Aquí va tu código
     FUEGO, AGUA, PLANTA, VENENO, ELECTRICO, PSIQUICO, ROCA, TIERRA, NORMAL,
-    VOLADOR, HADA, LUCHA, ACERO, BICHO, HIELO, FANTASAMA;
+    VOLADOR, HADA, LUCHA, ACERO, BICHO, HIELO, FANTASMA;
 
     public double multiplicadorDaño(TipoPokemon atacante, TipoPokemon defensor) {
 
@@ -48,7 +48,7 @@ public enum TipoPokemon {
             case VENENO:
                 switch (defensor){
                     case ROCA:
-                    case FANTASAMA:
+                    case FANTASMA:
                         return 0.5;
                     case PLANTA:
                     case HADA:
@@ -104,7 +104,7 @@ public enum TipoPokemon {
 
             case NORMAL:
                 switch (defensor){
-                    case FANTASAMA:
+                    case FANTASMA:
                         return 0;
                 }
                 break;
@@ -131,7 +131,7 @@ public enum TipoPokemon {
                 switch (defensor){
                     case PSIQUICO:
                     case HADA:
-                    case FANTASAMA:
+                    case FANTASMA:
                         return 0.5;
                     case ROCA:
                     case NORMAL:
@@ -156,7 +156,7 @@ public enum TipoPokemon {
             case BICHO:
                 switch (defensor){
                     case ACERO:
-                    case FANTASAMA:
+                    case FANTASMA:
                         return 0.5;
                     case PLANTA:
                     case VOLADOR:
@@ -171,13 +171,13 @@ public enum TipoPokemon {
                         return 2;
                 }
                 break;
-            case FANTASAMA:
+            case FANTASMA:
                 switch (defensor){
                     case NORMAL:
                         return 0;
                     case VENENO:
                         return 0.5;
-                    case FANTASAMA:
+                    case FANTASMA:
                         return 2;
                 }
             default:
