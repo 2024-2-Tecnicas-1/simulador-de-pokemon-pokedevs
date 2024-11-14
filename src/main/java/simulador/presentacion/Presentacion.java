@@ -51,12 +51,56 @@ public class Presentacion {
 
         System.out.println(entrenador.getNombre()+" toma te doy tu primer pokemon, el es "+ primero.getNombre());
         entrenador.agregarPokemon(primero);
+        
     }
 
+     public static void mostrarMenu() {
+        System.out.println("\n--- Menú Principal ---");
+        System.out.println("1. Entrenar Pokémon");
+        System.out.println("2. Guardar partida");
+        System.out.println("3. Iniciar batalla");
+        System.out.println("4. Salir");
+    }
+    
     public static void main(String[] args) {
         Presentacion presentacion = new Presentacion();
         System.out.println(presentacion.mensajeInicio());
         mensajeDarPrimerPokemon();
+        
+        Entrenador entrenador = new Entrenador("Jugador"); 
+        boolean continuar = true;
+        while (continuar) {
+            mostrarMenu();
+            System.out.print("Selecciona una opción: ");
+            int opcion = scanner.nextInt();
+            scanner.nextLine();  // Limpiar el buffer de entrada
 
+            switch (opcion) {
+                case 1:  // Entrenar Pokémon
+                    entrenador.mostrarPokemones();
+                    System.out.print("Elige un Pokémon para entrenar: ");
+                    int pokemonIndex = scanner.nextInt() - 1;  // Restamos 1 porque el índice empieza desde 0
+                    if (pokemonIndex >= 0 && pokemonIndex < entrenador.getPokemones().size()) {
+                        Pokemon pokemon = entrenador.getPokemones().get(pokemonIndex);
+                        entrenador.entrenarPokemon(pokemon);
+                    } else {
+                        System.out.println("Opción no válida.");
+                    }
+                    break;
+                case 2:  // Guardar partida
+                    System.out.println("La partida ha sido guardada exitosamente.");
+                    break;
+                case 3:  // Iniciar batalla
+                    System.out.println("Iniciando batalla...");
+                    // Aquí podrías añadir la lógica para la batalla (por ejemplo, elegir oponentes y hacer el combate)
+                    break;
+                case 4:  // Salir
+                    continuar = false;  // Termina el bucle y sale del juego
+                    System.out.println("¡Gracias por jugar!");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Por favor, selecciona una opción válida.");
+            }
+        }
     }
 }
