@@ -1,21 +1,19 @@
-package simulador.aplicaion;
-
-import java.util.LinkedList;
+package simulador.aplicacion;
 
 public abstract class Pokemon {
-    // TODO: Aquí va tu código
+
     private String nombre;
     private int salud;
     private int puntosAtaque;
-    private LinkedList<TipoPokemon> tiposPokemon;
+    private TipoPokemon [] tipos;
     private String estado;
 
     // Constructor
-    public Pokemon(String nombre, int salud, int puntosAtaque, LinkedList<TipoPokemon> tiposPokemon, String estado) {
+    public Pokemon(String nombre, int salud, int puntosAtaque, TipoPokemon [] tipos, String estado) {
         this.nombre = nombre;
         this.salud = salud;
         this.puntosAtaque = puntosAtaque;
-        this.tiposPokemon = tiposPokemon;
+        this.tipos = tipos;
         this.estado = estado;
     }
 
@@ -45,12 +43,8 @@ public abstract class Pokemon {
         this.puntosAtaque = puntosAtaque;
     }
 
-    public LinkedList<TipoPokemon> getTiposPokemon() {
-        return tiposPokemon;
-    }
-
-    public void setTiposPokemon(LinkedList<TipoPokemon> tiposPokemon) {
-        this.tiposPokemon = tiposPokemon;
+    public TipoPokemon[] getTiposPokemon() {
+        return tipos;
     }
 
     public String getEstado() {

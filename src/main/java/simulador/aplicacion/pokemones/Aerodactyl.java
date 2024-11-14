@@ -1,18 +1,14 @@
-import simulador.aplicaion.TipoPokemon;
-import simulador.aplicaion.Pokemon;
-import java.util.LinkedList;
+package simulador.aplicacion.pokemones;
 
-public class Gastly extends Pokemon {
+import simulador.aplicacion.Pokemon;
+import simulador.aplicacion.TipoPokemon;
 
-    private static final LinkedList<TipoPokemon> tipos = new LinkedList<>();
+public class Aerodactyl extends Pokemon {
 
-    static {
-        tipos.add(TipoPokemon.FANTASMA);  
-    }
 
-    public Gastly() {
+    public Aerodactyl() {
         // Llamar al constructor de Pokemon con la lista de tipos
-        super("Gastly", 30, 35, tipos, "Normal");
+        super("simulador.aplicaion.Aerodactyl", 80, 105, new TipoPokemon[]{TipoPokemon.ROCA, TipoPokemon.VOLADOR}, "Normal");
     }
 
     @Override

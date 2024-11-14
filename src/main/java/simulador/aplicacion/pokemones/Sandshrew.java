@@ -1,18 +1,13 @@
-import simulador.aplicaion.TipoPokemon;
-import simulador.aplicaion.Pokemon;
-import java.util.LinkedList;
+package simulador.aplicacion.pokemones;
 
-public class Tangela extends Pokemon {
+import simulador.aplicacion.TipoPokemon;
+import simulador.aplicacion.Pokemon;
 
-    private static final LinkedList<TipoPokemon> tipos = new LinkedList<>();
+public class Sandshrew extends Pokemon {
 
-    static {
-        tipos.add(TipoPokemon.PLANTA);  
-    }
-
-    public Tangela() {
+    public Sandshrew() {
         // Llamar al constructor de Pokemon con la lista de tipos
-        super("Tangela", 65, 55, tipos, "Normal");
+        super("Sandshrew", 65, 83, new TipoPokemon[] {TipoPokemon.TIERRA}, "Normal");
     }
 
     @Override

@@ -1,18 +1,13 @@
-import simulador.aplicaion.TipoPokemon;
-import simulador.aplicaion.Pokemon;
-import java.util.LinkedList;
+package simulador.aplicacion.pokemones;
 
-public class Mime extends Pokemon {
+import simulador.aplicacion.TipoPokemon;
+import simulador.aplicacion.Pokemon;
 
-    private static final LinkedList<TipoPokemon> tipos = new LinkedList<>();
+public class Magmar extends Pokemon {
 
-    static {
-        tipos.add(TipoPokemon.PSIQUICO);  
-    }
-
-    public Mime() {
+    public Magmar() {
         // Llamar al constructor de Pokemon con la lista de tipos
-        super("Mime", 40, 45, tipos, "Normal");
+        super("Magmar", 65, 95, new TipoPokemon[]{TipoPokemon.FUEGO}, "Normal");
     }
 
     @Override
@@ -30,4 +25,3 @@ public class Mime extends Pokemon {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
-

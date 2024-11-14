@@ -1,18 +1,13 @@
-import simulador.aplicaion.TipoPokemon;
-import simulador.aplicaion.Pokemon;
-import java.util.LinkedList;
+package simulador.aplicacion.pokemones;
 
-public class Electabuzz extends Pokemon {
+import simulador.aplicacion.TipoPokemon;
+import simulador.aplicacion.Pokemon;
 
-    private static final LinkedList<TipoPokemon> tipos = new LinkedList<>();
+public class Jynx extends Pokemon {
 
-    static {
-        tipos.add(TipoPokemon.ELECTRICO);  
-    }
-
-    public Electabuzz() {
+    public Jynx() {
         // Llamar al constructor de Pokemon con la lista de tipos
-        super("Electabuzz", 65, 83, tipos, "Normal");
+        super("Jynx", 65, 50, new TipoPokemon[] {TipoPokemon.HIELO, TipoPokemon.PSIQUICO}, "Normal");
     }
 
     @Override
@@ -30,3 +25,4 @@ public class Electabuzz extends Pokemon {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
+

@@ -1,18 +1,14 @@
-import simulador.aplicaion.TipoPokemon;
-import simulador.aplicaion.Pokemon;
-import java.util.LinkedList;
+package simulador.aplicacion.pokemones;
 
-public class Tentacool extends Pokemon {
+import simulador.aplicacion.Pokemon;
+import simulador.aplicacion.TipoPokemon;
 
-    private static final LinkedList<TipoPokemon> tipos = new LinkedList<>();
+public class Electabuzz extends Pokemon {
 
-    static {
-        tipos.add(TipoPokemon.VENENO);  
-    }
 
-    public Tentacool() {
+    public Electabuzz() {
         // Llamar al constructor de Pokemon con la lista de tipos
-        super("Tentacool", 40, 40, tipos, "Normal");
+        super("Electabuzz", 65, 83, new TipoPokemon[] {TipoPokemon.ELECTRICO}, "Normal");
     }
 
     @Override

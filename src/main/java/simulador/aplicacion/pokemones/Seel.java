@@ -1,18 +1,13 @@
-import simulador.aplicaion.TipoPokemon;
-import simulador.aplicaion.Pokemon;
-import java.util.LinkedList;
+package simulador.aplicacion.pokemones;
 
-public class Magmar extends Pokemon {
+import simulador.aplicacion.TipoPokemon;
+import simulador.aplicacion.Pokemon;
 
-    private static final LinkedList<TipoPokemon> tipos = new LinkedList<>();
-    
-    static {
-        tipos.add(TipoPokemon.FUEGO);  
-    }
+public class Seel extends Pokemon {
 
-    public Magmar() {
+    public Seel() {
         // Llamar al constructor de Pokemon con la lista de tipos
-        super("Magmar", 65, 95, tipos, "Normal");
+        super("Seel", 65, 45, new TipoPokemon[] {TipoPokemon.AGUA}, "Normal");
     }
 
     @Override

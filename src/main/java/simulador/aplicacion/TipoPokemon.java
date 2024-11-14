@@ -1,4 +1,4 @@
-package simulador.aplicaion;
+package simulador.aplicacion;
 
 public enum TipoPokemon {
     // TODO: Aquí va tu código

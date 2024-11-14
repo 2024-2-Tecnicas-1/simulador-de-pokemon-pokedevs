@@ -1,18 +1,13 @@
-import simulador.aplicaion.TipoPokemon;
-import simulador.aplicaion.Pokemon;
-import java.util.LinkedList;
+package simulador.aplicacion.pokemones;
 
-public class Jynx extends Pokemon {
+import simulador.aplicacion.TipoPokemon;
+import simulador.aplicacion.Pokemon;
 
-    private static final LinkedList<TipoPokemon> tipos = new LinkedList<>();
+public class Tentacool extends Pokemon {
 
-    static {
-        tipos.add(TipoPokemon.HIELO);  
-    }
-
-    public Jynx() {
+    public Tentacool() {
         // Llamar al constructor de Pokemon con la lista de tipos
-        super("Jynx", 65, 50, tipos, "Normal");
+        super("Tentacool", 40, 40, new TipoPokemon[] {TipoPokemon.VENENO, TipoPokemon.AGUA}, "Normal");
     }
 
     @Override
@@ -30,4 +25,3 @@ public class Jynx extends Pokemon {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
-
