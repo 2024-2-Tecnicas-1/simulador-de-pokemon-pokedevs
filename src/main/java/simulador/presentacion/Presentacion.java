@@ -38,7 +38,7 @@ public class Presentacion {
         return mensaje1;
     }
 
-    public static void mensajeDarPrimerPokemon(){
+    public static Entrenador crearEntrenadorConPrimerPokemon(){
         Entrenador entrenador;
         String nombre;
         System.out.print("Pero primero dime como te llamas: ");
@@ -51,7 +51,7 @@ public class Presentacion {
 
         System.out.println(entrenador.getNombre()+" toma te doy tu primer pokemon, el es "+ primero.getNombre());
         entrenador.agregarPokemon(primero);
-        
+        return entrenador;
     }
 
      public static void mostrarMenu() {
@@ -65,9 +65,9 @@ public class Presentacion {
     public static void main(String[] args) {
         Presentacion presentacion = new Presentacion();
         System.out.println(presentacion.mensajeInicio());
-        mensajeDarPrimerPokemon();
+        Entrenador entrenador = crearEntrenadorConPrimerPokemon();
         
-        Entrenador entrenador = new Entrenador("Jugador"); 
+        
         boolean continuar = true;
         while (continuar) {
             mostrarMenu();
