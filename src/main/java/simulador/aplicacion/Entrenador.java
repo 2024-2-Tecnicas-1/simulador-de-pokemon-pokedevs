@@ -34,12 +34,14 @@ public class Entrenador {
     }
 
     public void entrenarPokemon(Pokemon pokemon) {
+      // Verifica si el pokemon que eligimos esta en el equipo del entrenador
         if (pokemones.contains(pokemon)) {
             int index = pokemones.indexOf(pokemon); 
-            entrenamientosPorPokemon[index]++;
+            entrenamientosPorPokemon[index]++;// Aqui se obtiene la posicion del pokemon, para llevar contabilizado el numero de entrenamientos
+            // Subir STATS
             pokemon.setSalud(pokemon.getSalud() + 5);
             pokemon.setPuntosAtaque(pokemon.getPuntosAtaque() + 3);
-
+            // MENU de resultados del entrenamiento 
             System.out.println("\n Entrenamiento de " + pokemon.getNombre() + " con " + this.nombre);
             System.out.println("¡Entrenamiento Número " + entrenamientosPorPokemon[index] + " completado!");
             System.out.println("Salud aumentada en 5 puntos.\n Nueva salud: " + pokemon.getSalud());
@@ -52,7 +54,7 @@ public class Entrenador {
     public void mostrarPokemones() {
         if (pokemones.isEmpty()) {
             System.out.println(this.nombre + " no tienes ningún Pokémon.");
-            return;
+            return; // Verificacion si el entrenador tiene pokemones
         }
         System.out.println("Pokémones de " + this.nombre + ":");
         for (int i = 0; i < pokemones.size(); i++) {
@@ -61,7 +63,7 @@ public class Entrenador {
                     + ", Ataque: " + pmostrar.getPuntosAtaque() + ", Tipo: "
                     + Arrays.toString(pmostrar.getTiposPokemon())
                     + ", Entrenamientos realizados: " + entrenamientosPorPokemon[i] + ")");
-        }
+        }// Se Muestra las carcteristicas del pokemon y sus entrtenamientos 
     }
 
     public Pokemon prepararBatalla(int index) {

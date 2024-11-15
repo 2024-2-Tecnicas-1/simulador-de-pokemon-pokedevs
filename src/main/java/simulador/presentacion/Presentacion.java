@@ -57,9 +57,10 @@ public class Presentacion {
      public static void mostrarMenu() {
         System.out.println("\n--- Menú Principal ---");
         System.out.println("1. Entrenar Pokémon");
-        System.out.println("2. Guardar partida");
-        System.out.println("3. Iniciar batalla");
-        System.out.println("4. Salir");
+        System.out.println("2. Añadir Pokémon");
+        System.out.println("3. Guardar partida");
+        System.out.println("4. Iniciar batalla");
+        System.out.println("5. Salir");
     }
     
     public static void main(String[] args) {
@@ -88,13 +89,16 @@ public class Presentacion {
                     }
                     break;
                 case 2:  // Guardar partida
-                    System.out.println("La partida ha sido guardada exitosamente.");
+                    Pokemon [] pokemones = {new Aerodactyl(), new Electabuzz(), new Gastly(), new Jynx(), new Magmar(), new MrMine(), new Sandshrew(), new Seel(), new Tangela(), new Tentacool()};
                     break;
-                case 3:  // Iniciar batalla
+                case 3:  // Guardar partida
+                    System.out.println("La partida ha sido guardada exitosamente.");// Añadir la lista de pokemones
+                    break;
+                case 4:  // Iniciar batalla
                     System.out.println("Iniciando batalla...");
                     // Aquí podrías añadir la lógica para la batalla (por ejemplo, elegir oponentes y hacer el combate)
                     break;
-                case 4:  // Salir
+                case 5:  // Salir
                     continuar = false;  // Termina el bucle y sale del juego
                     System.out.println("¡Gracias por jugar!");
                     break;
