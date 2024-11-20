@@ -21,7 +21,15 @@ public class Batalla {
     private Pokemon entrenado;
     private Pokemon salvaje;
 
+<<<<<<< HEAD
 public Batalla(Pokemon entrenado) {
+=======
+    public Batalla(Pokemon entrenado, Pokemon salvaje) {
+
+    }
+
+    public Batalla(Pokemon entrenado) {
+>>>>>>> c852ae445cac7704706c253c1f08a60b784e4b6f
 
         this.entrenado = entrenado;
         this.salvaje = pokemonSalvaje();
@@ -166,4 +174,7 @@ public Batalla(Pokemon entrenado) {
 
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c852ae445cac7704706c253c1f08a60b784e4b6f
