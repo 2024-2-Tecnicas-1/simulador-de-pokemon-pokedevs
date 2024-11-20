@@ -23,7 +23,7 @@ public class Batalla {
 
     public Batalla(Pokemon entrenado, Pokemon salvaje) {
 
-    
+    }
 
     public Batalla(Pokemon entrenado) {
 
@@ -168,4 +168,3 @@ public class Batalla {
 
 }
 
-}

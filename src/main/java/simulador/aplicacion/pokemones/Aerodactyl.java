@@ -2,7 +2,6 @@ package simulador.aplicacion.pokemones;
 
 import simulador.aplicacion.Pokemon;
 import simulador.aplicacion.TipoPokemon;
-
 public class Aerodactyl extends Pokemon {
 
 
@@ -41,8 +40,15 @@ public class Aerodactyl extends Pokemon {
 
     @Override
     public void recibirDaño(int daño) {
-        setSalud(daño);
+  int nuevaSalud = getSalud() - daño;
+        if (nuevaSalud < 0) {
+            nuevaSalud = 0; // La salud no puede ser negativa
+        }
+        setSalud(nuevaSalud);
+
+        System.out.println(getNombre() + " recibió " + daño + " puntos de daño. Salud restante: " + getSalud());
     }
+    
 
     @Override
     public int entrenar() {
