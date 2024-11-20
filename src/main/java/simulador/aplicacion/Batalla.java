@@ -21,11 +21,7 @@ public class Batalla {
     private Pokemon entrenado;
     private Pokemon salvaje;
 
-    public Batalla(Pokemon entrenado, Pokemon salvaje) {
-
-    
-
-    public Batalla(Pokemon entrenado) {
+public Batalla(Pokemon entrenado) {
 
         this.entrenado = entrenado;
         this.salvaje = pokemonSalvaje();
@@ -52,6 +48,7 @@ public class Batalla {
     }
 
     public void iniciarBatalla() {
+        int nose = salvaje.getSalud();
         System.out.println("¡Comienza la batalla!");
         System.out.println(entrenado.getNombre() + " (Salud: " + entrenado.getSalud() + ") vs "
                 + salvaje.getNombre() + " (Salud: " + salvaje.getSalud() + ")");
@@ -62,6 +59,7 @@ public class Batalla {
                 System.out.println(salvaje.getNombre() + " ha sido derrotado.");
                 System.out.println(entrenado.getNombre() + " es el ganador.");
                 mejorarSalvaje();
+                
                 break;
             }
 
@@ -168,4 +166,4 @@ public class Batalla {
 
 }
 
-}
+
