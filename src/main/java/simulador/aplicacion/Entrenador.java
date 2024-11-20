@@ -5,15 +5,14 @@ import java.util.LinkedList;
 
 public class Entrenador {
 
-    // TODO: Aquí va tu código
     private final String nombre;
     private final LinkedList<Pokemon> pokemones;
-    private final int[] entrenamientosPorPokemon;
+    private final int[] entrenamientosPorPokemon; // Contador de entrenamientos por Pokémon
 
     public Entrenador(String nombre) {
         this.nombre = nombre;
         this.pokemones = new LinkedList<>();
-        this.entrenamientosPorPokemon = new int[10];
+        this.entrenamientosPorPokemon = new int[10]; // Máximo 10 Pokémon
     }
 
     public String getNombre() {
@@ -25,57 +24,72 @@ public class Entrenador {
     }
 
     public void agregarPokemon(Pokemon pokemon) {
-        if (pokemones.size() <= 10) {
+        if (pokemones.size() < 10) {
             pokemones.add(pokemon);
             System.out.println(pokemon.getNombre() + " ha sido agregado al equipo de " + this.nombre);
         } else {
-            System.out.println("El equipo está lleno! No se pueden agregar más Pokémones.");
+            System.out.println("El equipo está lleno. No se pueden agregar más Pokémon.");
         }
     }
 
     public void entrenarPokemon(Pokemon pokemon) {
-      // Verifica si el pokemon que eligimos esta en el equipo del entrenador
-        if (pokemones.contains(pokemon)) {
-            int index = pokemones.indexOf(pokemon); 
-            entrenamientosPorPokemon[index]++;// Aqui se obtiene la posicion del pokemon, para llevar contabilizado el numero de entrenamientos
-            // Subir STATS
-            pokemon.setSalud(pokemon.getSalud() + 5);
-            pokemon.setPuntosAtaque(pokemon.getPuntosAtaque() + 3);
-            // MENU de resultados del entrenamiento 
-            System.out.println("\n Entrenamiento de " + pokemon.getNombre() + " con " + this.nombre);
-            System.out.println("¡Entrenamiento Número " + entrenamientosPorPokemon[index] + " completado!");
-            System.out.println("Salud aumentada en 5 puntos.\n Nueva salud: " + pokemon.getSalud());
-            System.out.println("Ataque aumentado en 3 puntos.\n Nuevo ataque: " + pokemon.getPuntosAtaque());
-        } else {
-            System.out.println("Este Pokémon no pertenece a " + this.nombre);
+        int index = pokemones.indexOf(pokemon);
+
+        if (index == -1) {
+            System.out.println("Este Pokémon no pertenece a " + this.nombre + ".");
+            return;
         }
+
+        if (entrenamientosPorPokemon[index] >= 3) {
+            System.out.println(pokemon.getNombre() + " ya ha sido entrenado 3 veces hoy. No puede entrenar más.");
+            return;
+        }
+
+        // Realizar entrenamiento
+        pokemon.setSalud(pokemon.getSalud() + 5);
+        pokemon.setPuntosAtaque(pokemon.getPuntosAtaque() + 3);
+        entrenamientosPorPokemon[index]++;
+
+        // Mostrar resultados del entrenamiento
+        System.out.println("\nEntrenamiento de " + pokemon.getNombre() + " completado.");
+        System.out.println("Salud aumentada en 5 puntos. Nueva salud: " + pokemon.getSalud());
+        System.out.println("Ataque aumentado en 3 puntos. Nuevo ataque: " + pokemon.getPuntosAtaque());
+        System.out.println("Entrenamientos de hoy: " + entrenamientosPorPokemon[index] + "/3.");
     }
 
     public void mostrarPokemones() {
         if (pokemones.isEmpty()) {
-            System.out.println(this.nombre + " no tienes ningún Pokémon.");
-            return; // Verificacion si el entrenador tiene pokemones
+            System.out.println(this.nombre + " no tiene ningún Pokémon.");
+            return;
         }
+
         System.out.println("Pokémones de " + this.nombre + ":");
         for (int i = 0; i < pokemones.size(); i++) {
-            Pokemon pmostrar = pokemones.get(i);
-            System.out.println((i + 1) + ". " + pmostrar.getNombre() + "\n (Salud: " + pmostrar.getSalud()
-                    + ", Ataque: " + pmostrar.getPuntosAtaque() + ", Tipo: "
-                    + Arrays.toString(pmostrar.getTiposPokemon())
-                    + ", Entrenamientos realizados: " + entrenamientosPorPokemon[i] + ")");
-        }// Se Muestra las carcteristicas del pokemon y sus entrtenamientos 
+            Pokemon p = pokemones.get(i);
+            System.out.println((i + 1) + ". " + p.getNombre() + 
+                " (Salud: " + p.getSalud() + 
+                ", Ataque: " + p.getPuntosAtaque() + 
+                ", Tipo: " + Arrays.toString(p.getTiposPokemon()) + 
+                ", Entrenamientos de hoy: " + entrenamientosPorPokemon[i] + "/3)");
+        }
+    }
+
+    public void reiniciarEntrenamientos() {
+        Arrays.fill(entrenamientosPorPokemon, 0);
+        System.out.println("Los entrenamientos diarios han sido reiniciados. ¡Nuevo día, nuevas oportunidades para entrenar!");
     }
 
     public Pokemon prepararBatalla(int index) {
         if (index >= 0 && index < pokemones.size()) {
             Pokemon pokemonSeleccionado = pokemones.get(index);
             if (pokemonSeleccionado.getSalud() > 0) {
-                System.out.println(this.nombre + " ha elegido a " + pokemonSeleccionado.getNombre() + " para la batalla!");
+                System.out.println(this.nombre + " ha elegido a " + pokemonSeleccionado.getNombre() + " para la batalla.");
                 return pokemonSeleccionado;
             } else {
-                System.out.println("Pokémon inválido");
-                return null;
+                System.out.println("El Pokémon seleccionado no tiene suficiente salud para pelear.");
             }
+        } else {
+            System.out.println("Selección inválida.");
         }
         return null;
     }
