@@ -32,7 +32,7 @@ public abstract class Pokemon {
     }
 
     public void setSalud(int salud) {
-        this.salud = salud;
+        this.salud = this.salud + salud;
     }
 
     public int getPuntosAtaque() {
@@ -57,6 +57,6 @@ public abstract class Pokemon {
 
     // Métodos abstractos que deben ser implementados por las subclases
     public abstract int atacar(Pokemon oponente);
-    public abstract int recibirDaño(int daño);
+    public abstract void recibirDaño(int daño);
     public abstract int entrenar();
 }

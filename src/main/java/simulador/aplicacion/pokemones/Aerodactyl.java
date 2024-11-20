@@ -13,12 +13,35 @@ public class Aerodactyl extends Pokemon {
 
     @Override
     public int atacar(Pokemon oponente) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        TipoPokemon[] tiposAtacante = getTiposPokemon(); 
+        TipoPokemon[] tiposDefensor = oponente.getTiposPokemon(); 
+        double multiplicador = 1.0;
+
+        // Calcular el multiplicador de daño
+        for (TipoPokemon tipoAtacante : tiposAtacante) {
+            for (TipoPokemon tipoDefensor : tiposDefensor) {
+                multiplicador *= tipoAtacante.multiplicadorDaño(tipoAtacante, tipoDefensor);
+            }
+        }
+
+        // Calcular daño total
+        int dañoBase = getPuntosAtaque(); 
+        int dañoTotal = (int) (dañoBase * multiplicador);
+
+        // Aplicar el daño al oponente
+        oponente.recibirDaño(dañoTotal);
+
+        // Mostrar información del ataque
+        System.out.println(getNombre() + " atacó a " + oponente.getNombre() + " causando " + dañoTotal +
+                " puntos de daño (multiplicador: " + multiplicador + ").");
+
+        return dañoTotal;
+        
     }
 
     @Override
-    public int recibirDaño(int daño) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void recibirDaño(int daño) {
+        setSalud(daño);
     }
 
     @Override

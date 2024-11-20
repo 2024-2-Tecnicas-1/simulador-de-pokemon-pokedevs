@@ -95,8 +95,9 @@ public class Presentacion {
                     System.out.println("La partida ha sido guardada exitosamente.");// Añadir la lista de pokemones
                     break;
                 case 4:  // Iniciar batalla
-                    System.out.println("Iniciando batalla...");
-                    // Aquí podrías añadir la lógica para la batalla (por ejemplo, elegir oponentes y hacer el combate)
+                    
+                    
+                    
                     break;
                 case 5:  // Salir
                     continuar = false;  // Termina el bucle y sale del juego
