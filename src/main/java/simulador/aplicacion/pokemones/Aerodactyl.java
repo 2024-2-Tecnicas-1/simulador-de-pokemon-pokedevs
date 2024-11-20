@@ -8,7 +8,7 @@ public class Aerodactyl extends Pokemon {
 
     public Aerodactyl() {
         // Llamar al constructor de Pokemon con la lista de tipos
-        super("simulador.aplicaion.Aerodactyl", 80, 105, new TipoPokemon[]{TipoPokemon.ROCA, TipoPokemon.VOLADOR}, "Normal");
+        super("Aerodactyl", 80, 105, new TipoPokemon[]{TipoPokemon.ROCA, TipoPokemon.VOLADOR}, "Normal");
     }
 
     @Override
