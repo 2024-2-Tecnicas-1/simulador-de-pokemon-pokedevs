@@ -56,7 +56,8 @@ public Batalla(Pokemon entrenado) {
     }
 
     public void iniciarBatalla() {
-        int nose = salvaje.getSalud();
+        
+        int saludOriginal = salvaje.getSalud();
         System.out.println("¡Comienza la batalla!");
         System.out.println(entrenado.getNombre() + " (Salud: " + entrenado.getSalud() + ") vs "
                 + salvaje.getNombre() + " (Salud: " + salvaje.getSalud() + ")");
@@ -78,6 +79,7 @@ public Batalla(Pokemon entrenado) {
                 break;
             }
         }
+        salvaje.setSalud(saludOriginal);
     }
 
     public Batalla() {
@@ -94,8 +96,8 @@ public Batalla(Pokemon entrenado) {
         while (entrenado.getSalud() > 0 && salvaje.getSalud() > 0) {
             // Turno del jugador
             System.out.println("\nTu turno - Presiona 'A' y Enter para atacar:");
-            String entrada = scanner.nextLine().toUpperCase();
-
+            String entrada = scanner.next().toUpperCase();
+            
             if (entrada.equals("A")) {
                 turno(entrenado, salvaje);
                 if (salvaje.getSalud() <= 0) {
@@ -121,6 +123,7 @@ public Batalla(Pokemon entrenado) {
 
                 // Mostrar estado actual después de cada ronda
                 mostrarEstadoBatalla();
+                break;
             } else {
                 System.out.println("¡Comando no válido! Presiona 'A' para atacar.");
             }
